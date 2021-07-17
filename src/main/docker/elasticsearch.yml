@@ -1,0 +1,10 @@
+version: '2'
+services:
+    spotgarage-elasticsearch:
+        container_name: spotgarage-elasticsearch
+        image: elasticsearch:2.4.1
+        # volumes:
+        #     - ~/volumes/jhipster/SpotGarage/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300
