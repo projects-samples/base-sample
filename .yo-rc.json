@@ -1,0 +1,8 @@
+{
+  "generator-jhipster": {
+    "baseName": "SpotGarage",
+    "packageName": "in.spotgarage",
+    "packageFolder": "in/spotgarage",
+    "hibernateCache": "ehcache"
+  }
+}
