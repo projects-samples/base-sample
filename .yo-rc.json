@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "baseName": "SpotGarage",
+    "packageName": "in.spotgarage",
+    "packageFolder": "in/spotgarage",
+    "authenticationType": "session",
+    "hibernateCache": "hazelcast",
+    "clusteredHttpSession": "hazelcast",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "useCompass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "rememberMeKey": "098475f751a4eaf21da7abdc7a1095deb3772f8c"
+  }
+}
