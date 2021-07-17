@@ -1,0 +1,47 @@
+server:
+    port: 8080
+    address: localhost
+
+management.port: 9001
+
+spring:
+    profiles: prod
+    datasource:
+        dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
+        url: 
+        databaseName: SpotGarage
+        serverName: localhost
+        username: SpotGarage
+        password:
+
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        database: POSTGRESQL
+        openInView: false
+        show_sql: false
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        properties:
+            hibernate.cache.use_second_level_cache: true
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: false
+            hibernate.cache.region.factory_class: in.spotgarage.config.hazelcast.HazelcastCacheRegionFactory
+            hibernate.cache.use_minimal_puts: true
+            hibernate.cache.hazelcast.use_lite_member: true
+
+metrics:
+    jmx.enabled: true
+    graphite:
+        enabled: false
+        host:
+        port:
+
+cache:
+    timeToLiveSeconds: 3600
+    hazelcast:
+        debug: false
+        stickySession: false
+        backupCount: 1
+        
