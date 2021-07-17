@@ -1,0 +1,17 @@
+{
+  "generator-jhipster": {
+    "baseName": "SpotGarage",
+    "packageName": "in.spotgarage",
+    "packageFolder": "in/spotgarage",
+    "authenticationType": "token",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "useCompass": true,
+    "frontendBuilder": "grunt",
+    "javaVersion": "8"
+  }
+}
