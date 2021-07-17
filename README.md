@@ -1,1 +1,2 @@
-# base-sample
+README for SpotGarage
+==========================
