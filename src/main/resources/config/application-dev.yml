@@ -1,0 +1,66 @@
+server:
+    port: 8080
+
+spring:
+    profiles: dev
+    
+    datasource:
+        dataSourceClassName: org.h2.jdbcx.JdbcDataSource
+        url: jdbc:h2:mem:jhipster
+        databaseName: 
+        serverName: 
+        username: 
+        password:
+
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        openInView: false
+        show_sql: true
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        properties:
+            hibernate.cache.use_second_level_cache: true
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+            hibernate.cache.region.factory_class: in.spotgarage.config.hazelcast.HazelcastCacheRegionFactory
+            hibernate.cache.use_minimal_puts: true
+            hibernate.cache.hazelcast.use_lite_member: true
+
+    mail:
+        baseUrl: http://localhost:8080
+
+    thymeleaf:
+        mode: XHTML
+        cache: false
+
+metrics:
+    jmx.enabled: true
+    graphite:
+        enabled: false
+        host: localhost
+        port: 2003
+
+cache:
+    timeToLiveSeconds: 3600
+    hazelcast:
+        debug: true
+        stickySession: false
+        backupCount: 1
+
+# You can add as many as folders to watch
+# You just need to add a dash + the directory to watch
+hotReload:
+    enabled: true
+    package:
+      project: in.spotgarage
+      domain: in.spotgarage.domain
+      restdto: in.spotgarage.web.rest.dto
+    liquibase:
+      defaultCatalogName: 
+      defaultSchema: public
+      excludeTables: 
+    watchdir:
+      - target/classes
