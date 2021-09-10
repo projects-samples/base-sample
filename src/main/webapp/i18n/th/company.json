@@ -1,0 +1,22 @@
+{
+  "spotGarageApp": {
+    "company": {
+      "home": {
+        "title": "Companies",
+        "createLabel": "สร้าง Company",
+        "createOrEditLabel": "สร้างหรือแก้ไข Company",
+        "search": "ค้นหา Company",
+        "notFound": "No Companies found"
+      },
+      "created": "Company ถูกสร้างด้วย {{ param }}",
+      "updated": "Company ถูกแก้ไขด้วย {{ param }}",
+      "deleted": "Company ถูกลบด้วย {{ param }}",
+      "delete": {
+        "question": "คุณต้องการที่จะลบ Company {{ id }}?"
+      },
+      "detail": {
+        "title": "Company"
+      }
+    }
+  }
+}

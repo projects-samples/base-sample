@@ -1,0 +1,22 @@
+{
+  "spotGarageApp": {
+    "company": {
+      "home": {
+        "title": "Companies",
+        "createLabel": "Vytvořit Company",
+        "createOrEditLabel": "Vytvořit nebo upravit Company",
+        "search": "Vyhledat Company",
+        "notFound": "No Companies found"
+      },
+      "created": "Byl vytvořen potomek entity Company s identifikátorem {{ param }}",
+      "updated": "Potomek entity Company s identifikátorem {{ param }} byl upravený.",
+      "deleted": "Potomek entity Company s identifikátorem {{ param }} bol smazaný.",
+      "delete": {
+        "question": "Jste si jisti, že chcete smazat Company {{ id }}?"
+      },
+      "detail": {
+        "title": "Company"
+      }
+    }
+  }
+}

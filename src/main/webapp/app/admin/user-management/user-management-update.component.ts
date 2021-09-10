@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
 
+import { HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
+
+import { JhiAlertService } from 'ng-jhipster';
+import { AccountService } from 'app/core/auth/account.service';
+
+import { ICompany } from '../../shared/model/company.model';
+import { CompanyService } from '../../entities/company/company.service';
 import { JhiLanguageHelper } from 'app/core/language/language.helper';
 import { User } from 'app/core/user/user.model';
 import { UserService } from 'app/core/user/user.service';
@@ -15,6 +24,8 @@ export class UserMgmtUpdateComponent implements OnInit {
   languages: any[];
   authorities: any[];
   isSaving: boolean;
+  currentAccount: any;
+  companies: ICompany[];
 
   editForm = this.fb.group({
     id: [null],
@@ -24,7 +35,8 @@ export class UserMgmtUpdateComponent implements OnInit {
     email: ['', [Validators.minLength(5), Validators.maxLength(254), Validators.email]],
     activated: [true],
     langKey: [],
-    authorities: []
+    authorities: [],
+    company: []
   });
 
   constructor(
@@ -32,8 +44,15 @@ export class UserMgmtUpdateComponent implements OnInit {
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private accountService: AccountService,
+    protected jhiAlertService: JhiAlertService,
+    private companyService: CompanyService
+  ) {
+    this.accountService.identity().then(account => {
+      this.currentAccount = account;
+    });
+  }
 
   ngOnInit() {
     this.isSaving = false;
@@ -48,6 +67,14 @@ export class UserMgmtUpdateComponent implements OnInit {
     this.languageHelper.getAll().then(languages => {
       this.languages = languages;
     });
+
+    this.companyService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<ICompany[]>) => mayBeOk.ok),
+        map((response: HttpResponse<ICompany[]>) => response.body)
+      )
+      .subscribe((res: ICompany[]) => (this.companies = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   private updateForm(user: User): void {
@@ -59,7 +86,8 @@ export class UserMgmtUpdateComponent implements OnInit {
       email: user.email,
       activated: user.activated,
       langKey: user.langKey,
-      authorities: user.authorities
+      authorities: user.authorities,
+      company: user.company
     });
   }
 
@@ -85,6 +113,7 @@ export class UserMgmtUpdateComponent implements OnInit {
     user.activated = this.editForm.get(['activated']).value;
     user.langKey = this.editForm.get(['langKey']).value;
     user.authorities = this.editForm.get(['authorities']).value;
+    user.company = this.editForm.get(['company']).value;
   }
 
   private onSaveSuccess(result) {
@@ -94,5 +123,13 @@ export class UserMgmtUpdateComponent implements OnInit {
 
   private onSaveError() {
     this.isSaving = false;
+  }
+
+  protected onError(errorMessage: string) {
+    this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  trackCompanyById(index: number, item: ICompany) {
+    return item.id;
   }
 }

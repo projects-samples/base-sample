@@ -114,6 +114,10 @@ export class AccountService {
     return this.authenticationState.asObservable();
   }
 
+  getCompany(): String {
+    return this.isIdentityResolved() ? this.userIdentity.company : null;
+  }
+
   getImageUrl(): string {
     return this.isIdentityResolved() ? this.userIdentity.imageUrl : null;
   }

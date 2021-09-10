@@ -5,6 +5,9 @@ import in.spotgarage.config.Constants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.FieldType;
@@ -27,6 +30,8 @@ import java.util.Set;
 @Table(name = "jhi_user")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @org.springframework.data.elasticsearch.annotations.Document(indexName = "user")
+@FilterDef(name = "COMPANY_FILTER", parameters = {@ParamDef(name = "companyId", type = "long")})
+@Filter(name = "COMPANY_FILTER", condition = "company_id = :companyId")
 public class User extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -100,6 +105,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
+
+    @ManyToOne
+    private Company company;
 
     public Long getId() {
         return id;
@@ -214,6 +222,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.persistentTokens = persistentTokens;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -241,6 +257,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
+            ", company='" + company + '\'' +
             "}";
     }
 }

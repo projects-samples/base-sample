@@ -44,6 +44,7 @@ public class CacheConfiguration {
             createCache(cm, in.spotgarage.domain.User.class.getName() + ".authorities");
             createCache(cm, in.spotgarage.domain.PersistentToken.class.getName());
             createCache(cm, in.spotgarage.domain.User.class.getName() + ".persistentTokens");
+            createCache(cm, in.spotgarage.domain.Company.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

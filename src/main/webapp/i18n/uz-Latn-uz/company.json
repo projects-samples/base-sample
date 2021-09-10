@@ -1,0 +1,22 @@
+{
+  "spotGarageApp": {
+    "company": {
+      "home": {
+        "title": "Companies",
+        "createLabel": "Yangi Company qo`shish",
+        "createOrEditLabel": "Companyni tahrirlash",
+        "search": "Companyni izlash",
+        "notFound": "No Companies found"
+      },
+      "created": "Company {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Company saqlandi",
+      "deleted": "{{ param }}- Company o`chirildi",
+      "delete": {
+        "question": "{{ id }}- Companyni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Company"
+      }
+    }
+  }
+}

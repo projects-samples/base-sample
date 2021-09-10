@@ -1,0 +1,22 @@
+{
+  "spotGarageApp": {
+    "company": {
+      "home": {
+        "title": "Companies",
+        "createLabel": "Янги Company қўшиш",
+        "createOrEditLabel": "Companyни таҳрирлаш",
+        "search": "Companyни излаш",
+        "notFound": "No Companies found"
+      },
+      "created": "Company {{ param }} билан қўшилди.",
+      "updated": "{{ param }}- Company сақланди.",
+      "deleted": "{{ param }}- Company ўчирилди.",
+      "delete": {
+        "question": "{{ id }}- Companyни ўчирмоқчимисиз? "
+      },
+      "detail": {
+        "title": "Company"
+      }
+    }
+  }
+}

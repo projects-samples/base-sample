@@ -1,0 +1,22 @@
+{
+  "spotGarageApp": {
+    "company": {
+      "home": {
+        "title": "Companies",
+        "createLabel": "Стварыць новы Company",
+        "createOrEditLabel": "Стварыць або адрэдагаваць Company",
+        "search": "Знайсці Company",
+        "notFound": "No Companies found"
+      },
+      "created": "Новы Company створан з ідэнтыфікатарам {{ param }}",
+      "updated": "Company абноўлен з ідэнтыфікатарам {{ param }}",
+      "deleted": "Company выдален з ідэнтыфікатарам {{ param }}",
+      "delete": {
+        "question": "Вы ўпэўнены, што жадаеце выдаліць Company {{ id }}?"
+      },
+      "detail": {
+        "title": "Company"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "spotGarageApp": {
+    "company": {
+      "home": {
+        "title": "Companies",
+        "createLabel": "Krijo një të ri Company",
+        "createOrEditLabel": "Krijo ose përpuno një Company",
+        "search": "Kërko për Company",
+        "notFound": "No Companies found"
+      },
+      "created": "Një Company i ri u krijua me identifikues {{ param }}",
+      "updated": "Një Company u përpunua me identifikues {{ param }}",
+      "deleted": "Një Company u fshi me identifikues {{ param }}",
+      "delete": {
+        "question": "Jeni i sigurtë që doni të fshini Company {{ id }}?"
+      },
+      "detail": {
+        "title": "Company"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "spotGarageApp": {
+    "company": {
+      "home": {
+        "title": "Companies",
+        "createLabel": "Luo Company",
+        "createOrEditLabel": "Luo tai muokkaa Company",
+        "search": "Etsi Company",
+        "notFound": "Company ei löytynyt"
+      },
+      "created": "Uusi Company on luotu, id: {{ param }}",
+      "updated": "Company on päivitetty, id: {{ param }}",
+      "deleted": "Company on päivitetty, id: {{ param }}",
+      "delete": {
+        "question": "Haluatko varmasti poistaa Company {{ id }}?"
+      },
+      "detail": {
+        "title": "Company"
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import in.spotgarage.config.Constants;
 
 import in.spotgarage.domain.Authority;
 import in.spotgarage.domain.User;
+import in.spotgarage.domain.Company;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -53,6 +54,7 @@ public class UserDTO {
 
     private Set<String> authorities;
 
+    private Company company;
     public UserDTO() {
         // Empty constructor needed for Jackson.
     }
@@ -73,6 +75,7 @@ public class UserDTO {
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
             .collect(Collectors.toSet());
+        this.company = user.getCompany();
     }
 
     public Long getId() {
@@ -179,6 +182,14 @@ public class UserDTO {
         this.authorities = authorities;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     @Override
     public String toString() {
         return "UserDTO{" +
@@ -194,6 +205,7 @@ public class UserDTO {
             ", lastModifiedBy='" + lastModifiedBy + '\'' +
             ", lastModifiedDate=" + lastModifiedDate +
             ", authorities=" + authorities +
+            ", company='" + company + '\'' +
             "}";
     }
 }
